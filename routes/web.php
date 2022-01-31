@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::view('/dashboard', 'pages.dashboard');
+Route::view('/register', 'auth.register');
+Route::view('/login', 'auth.login');
+Route::view('/recover-password', 'auth.recoverPassword');
