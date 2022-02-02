@@ -26,24 +26,34 @@
                             <div class="card-content">
 
                                 <div class="card-body">
-                                    <form class="form-horizontal" action="index.html" novalidate>
+                                    <form class="form-horizontal" action="{{ route('register-user')}}" method="POST" >
+                                        @csrf
                                         <fieldset class="form-group position-relative has-icon-left">
-                                            <input type="text" class="form-control round" id="user-name" placeholder="Choose Username" required>
+                                            <input type="text" class="form-control round" id="username" name="username" value="{{ old('user-name')}}" placeholder="Choose Username" required>
                                             <div class="form-control-position">
                                                 <i class="ft-user"></i>
                                             </div>
+                                            @error('username')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </fieldset>
                                         <fieldset class="form-group position-relative has-icon-left">
-                                            <input type="email" class="form-control round" id="user-email" placeholder="Your Email Address" required>
+                                            <input type="email" class="form-control round" id="email" name="email" value="{{ old('user-email')}}" placeholder="Your Email Address" required>
                                             <div class="form-control-position">
                                                 <i class="ft-mail"></i>
                                             </div>
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </fieldset>
                                         <fieldset class="form-group position-relative has-icon-left">
-                                            <input type="password" class="form-control round" id="user-password" placeholder="Enter Password" required>
+                                            <input type="password" class="form-control round" id="password" name="password" placeholder="Enter Password" required>
                                             <div class="form-control-position">
                                                 <i class="ft-lock"></i>
                                             </div>
+                                            @error('password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </fieldset>
 
                                         <div class="form-group text-center">
